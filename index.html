@@ -138,13 +138,29 @@
             justify-content: center;
             gap: 26px;
             background: #ffffff;
-            transition: opacity 1s ease .5s, visibility 0s linear 1.6s;
+            transition: opacity .9s ease 1.5s, visibility 0s linear 2.5s;
         }
 
         .env-wrap {
             position: relative;
             width: min(92vw, 760px);
-            transition: transform 1s ease, opacity 1s ease;
+            perspective: 1500px;
+            transition: transform 1s ease .0s, opacity 1s ease;
+        }
+
+        .env-flap {
+            position: absolute;
+            left: 0.76%;
+            top: 3.04%;
+            width: 98.63%;
+            transform-origin: 50% 0;
+            transition: transform 1.1s cubic-bezier(.6, 0, .3, 1) .35s;
+            z-index: 2;
+            filter: drop-shadow(0 8px 12px rgba(122, 96, 45, .22));
+        }
+
+        #envelope.opened .env-flap {
+            transform: rotateX(165deg);
         }
 
         .env-wrap img {
@@ -153,8 +169,9 @@
         }
 
         #envelope.opened .env-wrap {
-            transform: scale(1.15);
+            transform: scale(1.12);
             opacity: 0;
+            transition-delay: 1.25s, 1.25s;
         }
 
         #envelope.opened {
@@ -168,7 +185,7 @@
             left: 51%;
             top: 58%;
             transform: translate(-50%, -50%);
-            width: 15%;
+            width: 19%;
             height: auto;
             aspect-ratio: 576 / 569;
             border: none;
@@ -193,7 +210,8 @@
 
         #envelope.opened .seal {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(.6);
+            transform: translate(-50%, -46%) scale(.45) rotate(-18deg);
+            transition: transform .45s ease, opacity .45s ease;
             animation: none
         }
 
@@ -218,8 +236,10 @@
             }
         }
 
-        #envelope.opened .tap-hint {
-            opacity: 0
+        #envelope.opened .tap-hint,
+        #envelope.opened .env-peek {
+            opacity: 0;
+            transition: opacity .4s ease;
         }
 
         /* peek text */
@@ -833,7 +853,8 @@
     <!-- ═══════════ ENVELOPE ═══════════ -->
     <div id="envelope">
         <div class="env-wrap">
-            <img src="envelope.jpg" alt="Wedding envelope">
+            <img src="envelope-base.jpg" alt="Wedding envelope">
+            <img class="env-flap" src="flap.png" alt="">
             <button class="seal" id="seal" aria-label="Open the invitation">
                 <svg viewBox="0 0 576 569" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
