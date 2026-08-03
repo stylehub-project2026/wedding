@@ -305,8 +305,6 @@
 
         .hero-date {
             display: inline-block;
-            margin-top: auto;
-            margin-bottom: 4svh;
             font-size: .8rem;
             letter-spacing: .34em;
             text-transform: uppercase;
@@ -336,8 +334,8 @@
         .column {
             position: absolute;
             bottom: 0;
-            width: 88px;
-            opacity: .95
+            width: clamp(90px, 17vw, 135px);
+            opacity: .97
         }
 
         .column.left {
@@ -347,6 +345,21 @@
         .column.right {
             right: -6px;
             transform: scaleX(-1)
+        }
+
+        .count-quote {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            text-align: center;
+            max-width: 24ch;
+            margin: 0 auto 1.2rem;
+            line-height: 1.9;
+        }
+
+        .countdown-sec .script {
+            font-size: clamp(2.2rem, 8.5vw, 2.8rem);
+            margin-bottom: .4rem;
         }
 
         .count-copy {
@@ -890,61 +903,23 @@
 
         <!-- ═══════════ HERO ═══════════ -->
         <header class="hero">
-            <img class="scene" src="hero.jpg" alt="Salah and Mona">
+            <img class="scene" src="https://salah-mona-wedding-invitation.vercel.app/couples7.jpg" alt="Salah and Mona">
 
             <div class="hero-overlay">
                 <div class="eyebrow rv">We're Getting Married</div>
                 <h1 class="names rv">Salah & Mona</h1>
                 <div class="hero-date rv">✦&nbsp; Sunday · 30 August 2026 &nbsp;✦</div>
+                <a href="#rsvp" class="btn rv">Confirm Attendance</a>
             </div>
         </header>
 
         <!-- ═══════════ COUNTDOWN ═══════════ -->
         <section class="countdown-sec">
-            <svg class="column left" viewBox="0 0 90 300" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="col" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#d9bd7f" />
-                        <stop offset="50%" stop-color="#f0dcae" />
-                        <stop offset="100%" stop-color="#b3924f" />
-                    </linearGradient>
-                </defs>
-                <g id="colcopy">
-                    <rect x="26" y="80" width="38" height="180" fill="url(#col)" />
-                    <rect x="18" y="260" width="54" height="12" rx="3" fill="#b3924f" />
-                    <rect x="12" y="272" width="66" height="14" rx="3" fill="#cfae6b" />
-                    <rect x="18" y="68" width="54" height="12" rx="3" fill="#b3924f" />
-                    <g stroke="#a8823f" stroke-width="1.4" opacity=".55">
-                        <line x1="34" y1="86" x2="34" y2="256" />
-                        <line x1="45" y1="86" x2="45" y2="256" />
-                        <line x1="56" y1="86" x2="56" y2="256" />
-                    </g>
-                    <g fill="#fdfaf1" stroke="#dcc9a0" stroke-width=".8">
-                        <circle cx="30" cy="52" r="9" />
-                        <circle cx="48" cy="44" r="11" />
-                        <circle cx="66" cy="54" r="9" />
-                        <circle cx="40" cy="60" r="8" />
-                        <circle cx="57" cy="62" r="8" />
-                        <circle cx="48" cy="30" r="8" />
-                    </g>
-                    <g fill="#e9dbb8">
-                        <circle cx="30" cy="52" r="2.4" />
-                        <circle cx="48" cy="44" r="2.8" />
-                        <circle cx="66" cy="54" r="2.4" />
-                        <circle cx="40" cy="60" r="2.2" />
-                        <circle cx="57" cy="62" r="2.2" />
-                        <circle cx="48" cy="30" r="2.2" />
-                    </g>
-                    <g fill="none" stroke="#a3ab7e" stroke-width="1.6">
-                        <path d="M22 60 q-8 8 -8 20" />
-                        <path d="M74 62 q8 8 8 18" />
-                    </g>
-                </g>
-            </svg>
-            <svg class="column right" viewBox="0 0 90 300" xmlns="http://www.w3.org/2000/svg">
-                <use href="#colcopy" />
-            </svg>
+            <img class="column left" src="column.png" alt="">
+            <img class="column right" src="column.png" alt="">
 
+            <p class="count-quote rv">When love begins,<br>forever quietly unfolds</p>
+            <h2 class="script rv">Countdown</h2>
             <p class="count-copy rv">To the most special<br>day of our lives</p>
             <div class="count-grid rv" id="countdown">
                 <div class="count-cell">
