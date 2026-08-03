@@ -847,6 +847,209 @@
             font-size: .66rem
         }
 
+
+        /* ════════════════════════════════════════
+   DESKTOP / LAPTOP  ≥900px
+   (everything below 900px stays exactly as it was)
+════════════════════════════════════════ */
+        @media (min-width:900px) {
+
+            .page {
+                max-width: none;
+                box-shadow: none;
+            }
+
+            /* ---------- envelope ---------- */
+            .env-wrap {
+                width: min(66vw, 600px);
+            }
+
+            .tap-hint {
+                font-size: 1.1rem;
+            }
+
+            /* ---------- hero: photo on the left, wording on the right ---------- */
+            .hero {
+                min-height: 700px;
+            }
+
+            .hero .scene {
+                right: auto;
+                width: 52%;
+            }
+
+            .hero-overlay {
+                inset: 0 0 0 52%;
+                justify-content: center;
+                padding: 6svh 6%;
+                background: var(--ivory);
+            }
+
+            .hero .eyebrow {
+                color: var(--gold-deep);
+                text-shadow: none;
+                font-size: .84rem;
+            }
+
+            .hero .names {
+                color: var(--gold-deep);
+                text-shadow: none;
+                font-size: clamp(4rem, 5.6vw, 6.2rem);
+                margin: .12em 0 .3em;
+            }
+
+            .hero-date {
+                margin-top: 1.5rem;
+                margin-bottom: 0;
+                color: var(--ink);
+                border-color: var(--gold-2);
+                text-shadow: none;
+                font-size: .86rem;
+            }
+
+            /* ---------- countdown ---------- */
+            .countdown-sec {
+                max-width: 1080px;
+                margin: 0 auto;
+                padding: 5.5rem 2rem 4.5rem;
+            }
+
+            .count-quote,
+            .count-copy {
+                font-size: 1.22rem;
+                max-width: 36ch;
+            }
+
+            .count-grid {
+                gap: 4.5rem;
+            }
+
+            .count-num {
+                font-size: 3.4rem;
+            }
+
+            /* ---------- gallery: four across, no sideways scroll ---------- */
+            .gallery-sec {
+                padding: 3rem 2rem 4.5rem;
+            }
+
+            .strip {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 22px;
+                overflow: visible;
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 1rem 0 0;
+            }
+
+            .shot {
+                flex: none;
+            }
+
+            .shot span {
+                font-size: 1.05rem;
+                padding-bottom: 18px;
+            }
+
+            /* ---------- our journey: three milestones side by side ---------- */
+            .journey-sec {
+                padding: 0 2rem 4.5rem;
+            }
+
+            .curtains {
+                max-width: 900px;
+                margin: 0 auto -.5rem;
+            }
+
+            .journey-inner {
+                max-width: 1080px;
+                margin: 0 auto;
+            }
+
+            .milestone-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.6rem;
+                margin-top: 3rem;
+            }
+
+            .milestone-row .milestone {
+                margin-top: 0;
+            }
+
+            .quote-block {
+                max-width: 44ch;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .quote-block .quote {
+                font-size: 1.35rem;
+                max-width: none;
+            }
+
+            /* ---------- order of events: one row ---------- */
+            .order-sec {
+                padding: 5rem 2rem 4rem;
+            }
+
+            .order-list {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1.4rem;
+                max-width: 1060px;
+                margin: 2.8rem auto 0;
+            }
+
+            /* ---------- event details ---------- */
+            .details-sec {
+                padding: 3rem 2rem 5rem;
+            }
+
+            .ornate {
+                max-width: 700px;
+                margin: 0 auto;
+                padding: 6rem 3rem 3.4rem;
+            }
+
+            .d-buttons {
+                grid-auto-flow: column;
+                justify-content: center;
+                gap: 1.2rem;
+            }
+
+            /* ---------- rsvp ---------- */
+            .rsvp-sec {
+                padding: 4.5rem 2rem 5.5rem;
+            }
+
+            form {
+                max-width: 720px;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem 1.8rem;
+            }
+
+            form>div:nth-child(3),
+            form>div:nth-child(4),
+            form>button {
+                grid-column: 1 / -1;
+            }
+
+            .rsvp-sec .btn-solid {
+                width: auto;
+                justify-self: center;
+                padding: .95em 3.4em;
+            }
+
+            footer {
+                padding: 3.2rem 1rem 3.8rem;
+            }
+
+            footer .script {
+                font-size: 2.4rem;
+            }
+        }
+
         @media (prefers-reduced-motion:reduce) {
             .rv {
                 transition: none;
@@ -895,10 +1098,6 @@
             </button>
         </div>
         <div class="tap-hint">Tap the seal to open</div>
-        <div class="env-peek">
-            <div class="eyebrow">Society News · An Unmissable Event</div>
-            <div class="script">The Union of Salah &amp; Mona</div>
-        </div>
     </div>
 
     <div class="page">
@@ -1003,23 +1202,27 @@
             <div class="journey-inner">
                 <h2 class="script rv">Our Journey</h2>
 
-                <div class="milestone rv">
-                    <span class="year">25 · 10 · 2024</span>
-                    <h3>Engagement Party</h3>
-                    <p>Surrounded by love and family, they celebrated the beginning of their journey together.</p>
-                </div>
+                <div class="milestone-row">
 
-                <div class="milestone rv">
-                    <span class="year">27 · 08 · 2026</span>
-                    <h3>Katb Ketab</h3>
-                    <p>In a blessed moment, they signed their marriage contract.</p>
-                </div>
+                    <div class="milestone rv">
+                        <span class="year">25 · 10 · 2024</span>
+                        <h3>Engagement Party</h3>
+                        <p>Surrounded by love and family, they celebrated the beginning of their journey together.</p>
+                    </div>
 
-                <div class="milestone rv">
-                    <span class="year">30 · 08 · 2026</span>
-                    <h3>The Wedding</h3>
-                    <p>And now, they invite you to witness the most beautiful chapter of their story.</p>
-                </div>
+                    <div class="milestone rv">
+                        <span class="year">27 · 08 · 2026</span>
+                        <h3>Katb Ketab</h3>
+                        <p>In a blessed moment, they signed their marriage contract.</p>
+                    </div>
+
+                    <div class="milestone rv">
+                        <span class="year">30 · 08 · 2026</span>
+                        <h3>The Wedding</h3>
+                        <p>And now, they invite you to witness the most beautiful chapter of their story.</p>
+                    </div>
+
+                </div><!-- /milestone-row -->
 
                 <div class="milestone rv quote-block">
                     <p class="quote">&ldquo;You are my today, my tomorrow, and all my favorite days in between.&rdquo;
